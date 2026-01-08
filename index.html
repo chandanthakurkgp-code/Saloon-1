@@ -56,8 +56,9 @@
 <script src="autoData.js"></script>
 <script src="doctorData.js"></script>
 <script src="teacherData.js"></script> <script>
+<script src="electricianData.js"></script>    
     // सभी डेटा को एक साथ मिलाना
-    const shopData = { ...saloonData, ...autoData, ...doctorData, ...teacherData };
+    const shopData = { ...saloonData, ...autoData, ...doctorData, ...teacherData, ...electricianData };
 
     function init() {
         const tabMenu = document.getElementById('tabMenu');
@@ -146,3 +147,4 @@
 </script>
 </body>
 </html>
+
