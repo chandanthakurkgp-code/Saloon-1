@@ -18,7 +18,7 @@
         .main-header { text-align: center; background-color: var(--light-gold); padding: 30px 0; margin: 0; width: 100%; border: 6px solid var(--gold-shadow); border-top: none; }
         .main-title { font-size: clamp(30px, 8vw, 55px); font-weight: 900; margin: 0; text-transform: uppercase; display: inline-block; animation: heartBeat 1.2s ease-in-out infinite; }
         @keyframes heartBeat { 0%, 28%, 70% { transform: scale(1); color: #000; } 14%, 42% { transform: scale(1.1); color: #ff0000; } }
-        .nav-container { background-color: var(--dark-bg); padding: 20px 0; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; gap: 10px; border-bottom: 4px solid var(--light-gold); overflow-x: auto; }
+        .nav-container { background-color: var(--dark-bg); padding: 20px 0; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: flex-start; gap: 10px; border-bottom: 4px solid var(--light-gold); overflow-x: auto; padding-left: 10px; }
         .tab-btn { font-size: 16px; padding: 12px 20px; font-weight: 900; cursor: pointer; border: none; border-radius: 50px; background-color: var(--light-gold); box-shadow: 0 6px 0 var(--gold-shadow); transition: 0.1s; white-space: nowrap; }
         .tab-btn.active { background-color: #fff; box-shadow: 0 2px 0 var(--gold-shadow); transform: translateY(4px); }
         .container { padding: 15px; max-width: 1100px; margin: auto; }
@@ -55,9 +55,9 @@
 <script src="saloonData.js"></script>
 <script src="autoData.js"></script>
 <script src="doctorData.js"></script>
-
-<script>
-    const shopData = { ...saloonData, ...autoData, ...doctorData };
+<script src="teacherData.js"></script> <script>
+    // सभी डेटा को एक साथ मिलाना
+    const shopData = { ...saloonData, ...autoData, ...doctorData, ...teacherData };
 
     function init() {
         const tabMenu = document.getElementById('tabMenu');
@@ -77,6 +77,9 @@
             
             let partnersHtml = '';
             shopData[key].partners.forEach(p => {
+                // कार्ड लिंक चेक करना
+                const cardBtn = p.cardLink ? `<a href="${p.cardLink}" target="_blank" class="action-btn" style="background-color: #ff9800; color: white;">🗂️ CARD</a>` : '';
+                
                 partnersHtml += `
                     <div class="list-card">
                         <h3>${p.name}</h3>
@@ -85,7 +88,7 @@
                         <div class="btn-group">
                             <a href="tel:${p.mobile}" class="action-btn">📞 CALL</a>
                             <a href="https://wa.me/${p.whatsapp}" class="action-btn">💬 WHATSAPP</a>
-                            <a href="${p.viewLink}" class="action-btn">🌐 VIEW</a>
+                            ${cardBtn} <a href="${p.viewLink}" class="action-btn">🌐 VIEW</a>
                             <a href="${p.mapLink}" target="_blank" class="action-btn" style="background-color: #ffeb3b;">📍 MAPS</a>
                             <button onclick="shareShop('${p.name}', '${p.address}')" class="action-btn" style="background-color: #03a9f4; color: white; grid-column: span 2;">📤 SHARE THIS SHOP</button>
                         </div>
@@ -104,11 +107,10 @@
         });
     }
 
-    // शेयर फंक्शन
+    // शेयर और अन्य फंक्शन्स वैसे ही रहेंगे
     function shareShop(name, address) {
         const text = `*${name}*\n📍 पता: ${address}\n\nखड़गपुर की बेहतरीन सेवाओं के लिए यहाँ देखें:`;
         const url = window.location.href;
-        
         if (navigator.share) {
             navigator.share({ title: name, text: text, url: url });
         } else {
@@ -117,7 +119,7 @@
     }
 
     function shareMain() {
-        const text = "खड़गपुर की लोकल सर्विसेज (सैलून, ऑटो, डॉक्टर्स) की जानकारी के लिए इस वेबसाइट को देखें:";
+        const text = "खड़गपुर की लोकल सर्विसेज की जानकारी के लिए इस वेबसाइट को देखें:";
         if (navigator.share) {
             navigator.share({ title: 'Kharagpur Services', text: text, url: window.location.href });
         } else {
