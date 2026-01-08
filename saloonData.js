@@ -1,5 +1,5 @@
 const saloonData = {
-    "saloon": {
+    "My Saloon": {
         "title": "Saloon",
         "icon": "✂️",
         "rates": ["Haircut: ₹100", "Shave: ₹60", "Facial: ₹500"],
@@ -9,3 +9,4 @@ const saloonData = {
         ]
     }
 };
+
