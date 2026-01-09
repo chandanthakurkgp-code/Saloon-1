@@ -3,38 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kharagpur Premium Services</title>
+    <title>Kharagpur Shops & Services</title>
     <style>
-        /* ... पुराना CSS वैसे ही रहेगा ... */
         * { box-sizing: border-box; }
-        :root { --light-gold: #FFD700; --gold-shadow: #C5A000; --dark-bg: #1a1a1a; --light-bg: #f4f4f4; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background-color: var(--light-bg); overflow-x: hidden; }
-        .ad-container { background-color: #000; border: 6px solid var(--light-gold); margin: 0; width: 100%; }
-        .ad-banner { padding: 15px 0 5px 0; overflow: hidden; display: flex; }
-        .ad-text { display: inline-block; white-space: nowrap; animation: moveLeft 20s linear infinite; font-size: 24px; font-weight: 900; color: var(--light-gold); }
+        /* Parrot Green और Golden का नया कॉम्बिनेशन */
+        :root { 
+            --parrot-green: #32CD32; 
+            --dark-green: #228B22;
+            --light-gold: #FFD700; 
+            --gold-shadow: #C5A000; 
+            --dark-bg: #1a1a1a; 
+        }
+
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: var(--parrot-green); /* Parrot Green Wallpaper */
+            overflow-x: hidden; 
+        }
+
+        /* विज्ञापन पट्टी */
+        .ad-container { background-color: #000; border: 4px solid var(--light-gold); margin: 0; width: 100%; }
+        .ad-banner { padding: 12px 0 5px 0; overflow: hidden; display: flex; }
+        .ad-text { display: inline-block; white-space: nowrap; animation: moveLeft 15s linear infinite; font-size: 20px; font-weight: 900; color: var(--light-gold); }
         @keyframes moveLeft { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-        .ad-static-actions { background-color: #000; text-align: center; padding: 10px 0 20px 0; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
-        .ad-static-btn { background-color: var(--light-gold); color: #000; padding: 10px 15px; border-radius: 50px; text-decoration: none; font-size: 14px; font-weight: 900; text-transform: uppercase; box-shadow: 0 4px 0 var(--gold-shadow); }
-        .main-header { text-align: center; background-color: var(--light-gold); padding: 30px 0; margin: 0; width: 100%; border: 6px solid var(--gold-shadow); border-top: none; }
-        .main-title { font-size: clamp(30px, 8vw, 55px); font-weight: 900; margin: 0; text-transform: uppercase; display: inline-block; animation: heartBeat 1.2s ease-in-out infinite; }
-        @keyframes heartBeat { 0%, 28%, 70% { transform: scale(1); color: #000; } 14%, 42% { transform: scale(1.1); color: #ff0000; } }
-        .nav-container { background-color: var(--dark-bg); padding: 20px 0; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: flex-start; gap: 10px; border-bottom: 4px solid var(--light-gold); overflow-x: auto; padding-left: 10px; }
-        .tab-btn { font-size: 16px; padding: 12px 20px; font-weight: 900; cursor: pointer; border: none; border-radius: 50px; background-color: var(--light-gold); box-shadow: 0 6px 0 var(--gold-shadow); transition: 0.1s; white-space: nowrap; }
-        .tab-btn.active { background-color: #fff; box-shadow: 0 2px 0 var(--gold-shadow); transform: translateY(4px); }
+        
+        .ad-static-actions { background-color: #000; text-align: center; padding: 5px 0 15px 0; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+        .ad-static-btn { background-color: var(--light-gold); color: #000; padding: 8px 12px; border-radius: 50px; text-decoration: none; font-size: 12px; font-weight: 900; box-shadow: 0 3px 0 var(--gold-shadow); }
+
+        /* नया हेडर डिज़ाइन */
+        .main-header { 
+            text-align: center; 
+            background-color: var(--light-gold); 
+            padding: 25px 0; 
+            margin: 0; 
+            width: 100%; 
+            border-bottom: 8px solid var(--gold-shadow); 
+        }
+        .main-title { 
+            font-size: clamp(40px, 10vw, 70px); 
+            font-weight: 900; 
+            margin: 0; 
+            text-transform: uppercase; 
+            display: block; 
+            line-height: 1;
+            animation: heartBeat 1.2s ease-in-out infinite; 
+        }
+        .main-subtitle { 
+            font-size: 18px; 
+            font-weight: 800; 
+            color: #000; 
+            letter-spacing: 3px; 
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+
+        @keyframes heartBeat { 0%, 28%, 70% { transform: scale(1); color: #000; } 14%, 42% { transform: scale(1.05); color: #d40000; } }
+
+        /* नेविगेशन */
+        .nav-container { background-color: var(--dark-bg); padding: 15px 0; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: flex-start; gap: 10px; border-bottom: 4px solid var(--light-gold); overflow-x: auto; padding-left: 10px; }
+        .tab-btn { font-size: 15px; padding: 10px 18px; font-weight: 900; cursor: pointer; border: none; border-radius: 50px; background-color: var(--light-gold); box-shadow: 0 5px 0 var(--gold-shadow); white-space: nowrap; }
+        .tab-btn.active { background-color: #fff; transform: translateY(3px); box-shadow: 0 2px 0 var(--gold-shadow); }
+
         .container { padding: 15px; max-width: 1100px; margin: auto; }
         .section { display: none; }
         .section.active { display: block; }
-        .rate-card { background: white; padding: 25px; border-radius: 25px; border: 8px solid var(--light-gold); box-shadow: 0 10px 20px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .rate-card h2 { font-size: 26px; border-bottom: 5px solid var(--light-gold); display: inline-block; margin-bottom: 15px; }
-        .rate-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; list-style: none; padding: 0; }
-        .rate-list li { padding: 10px; background: #fff9e6; border-radius: 10px; font-size: 15px; font-weight: 800; border-left: 6px solid var(--light-gold); }
-        .search-bar { width: 100%; padding: 18px; margin-bottom: 25px; border-radius: 50px; border: 4px solid var(--light-gold); font-size: 18px; outline: none; font-weight: bold; }
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
-        .list-card { background: white; padding: 20px; border-radius: 20px; border: 8px solid var(--light-gold); box-shadow: 0 8px 15px rgba(0,0,0,0.05); }
-        .list-card h3 { margin: 0 0 10px 0; font-size: 20px; color: #000; border-bottom: 2px solid #eee; padding-bottom: 5px; }
-        .list-card p { margin: 5px 0; font-weight: 800; font-size: 16px; }
-        .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 15px; }
-        .action-btn { font-size: 11px; padding: 12px 2px; text-decoration: none; color: #000; border-radius: 50px; text-align: center; font-weight: 900; background-color: var(--light-gold); box-shadow: 0 4px 0 var(--gold-shadow); text-transform: uppercase; cursor: pointer; border: none; }
+
+        /* रेट कार्ड और लिस्ट */
+        .rate-card { background: white; padding: 20px; border-radius: 20px; border: 6px solid var(--light-gold); margin-bottom: 20px; }
+        .search-bar { width: 100%; padding: 15px; margin-bottom: 20px; border-radius: 50px; border: 4px solid var(--light-gold); font-size: 16px; font-weight: bold; }
+
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+        .list-card { background: white; padding: 18px; border-radius: 15px; border: 5px solid var(--light-gold); box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
+        .list-card h3 { margin: 0 0 8px 0; font-size: 19px; border-bottom: 2px solid #eee; }
+        .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 12px; }
+        
+        .action-btn { font-size: 11px; padding: 10px 2px; text-decoration: none; color: #000; border-radius: 50px; text-align: center; font-weight: 900; background-color: var(--light-gold); box-shadow: 0 3px 0 var(--gold-shadow); text-transform: uppercase; cursor: pointer; border: none; }
     </style>
 </head>
 <body>
@@ -48,7 +93,11 @@
     </div>
 </div>
 
-<div class="main-header"><h1 class="main-title">Kharagpur Services</h1></div>
+<div class="main-header">
+    <h1 class="main-title">KHARAGPUR</h1>
+    <div class="main-subtitle">SHOPS & SERVICES</div>
+</div>
+
 <div class="nav-container" id="tabMenu"></div>
 <div class="container" id="contentArea"></div>
 
@@ -56,8 +105,9 @@
 <script src="autoData.js"></script>
 <script src="doctorData.js"></script>
 <script src="electricianData.js"></script>
-<script src="teacherData.js"></script> <script>
-    // सभी डेटा को एक साथ मिलाना
+<script src="teacherData.js"></script>
+
+<script>
     const shopData = { ...saloonData, ...autoData, ...doctorData, ...electricianData, ...teacherData };
 
     function init() {
@@ -78,9 +128,10 @@
             
             let partnersHtml = '';
             shopData[key].partners.forEach(p => {
-                // कार्ड लिंक चेक करना
                 const cardBtn = p.cardLink ? `<a href="${p.cardLink}" target="_blank" class="action-btn" style="background-color: #ff9800; color: white;">🗂️ CARD</a>` : '';
-                
+                // स्मार्ट मैप लिंक
+                const googleMapUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(p.name + ' ' + p.address)}`;
+
                 partnersHtml += `
                     <div class="list-card">
                         <h3>${p.name}</h3>
@@ -89,8 +140,9 @@
                         <div class="btn-group">
                             <a href="tel:${p.mobile}" class="action-btn">📞 CALL</a>
                             <a href="https://wa.me/${p.whatsapp}" class="action-btn">💬 WHATSAPP</a>
-                            ${cardBtn} <a href="${p.viewLink}" class="action-btn">🌐 VIEW</a>
-                            <a href="${p.mapLink}" target="_blank" class="action-btn" style="background-color: #ffeb3b;">📍 MAPS</a>
+                            ${cardBtn}
+                            <a href="${p.viewLink}" class="action-btn">🌐 VIEW</a>
+                            <a href="${googleMapUrl}" target="_blank" class="action-btn" style="background-color: #ffeb3b;">📍 MAPS</a>
                             <button onclick="shareShop('${p.name}', '${p.address}')" class="action-btn" style="background-color: #03a9f4; color: white; grid-column: span 2;">📤 SHARE THIS SHOP</button>
                         </div>
                     </div>`;
@@ -108,7 +160,7 @@
         });
     }
 
-    // शेयर और अन्य फंक्शन्स वैसे ही रहेंगे
+    // शेयर और अन्य फंक्शन्स
     function shareShop(name, address) {
         const text = `*${name}*\n📍 पता: ${address}\n\nखड़गपुर की बेहतरीन सेवाओं के लिए यहाँ देखें:`;
         const url = window.location.href;
@@ -120,9 +172,9 @@
     }
 
     function shareMain() {
-        const text = "खड़गपुर की लोकल सर्विसेज की जानकारी के लिए इस वेबसाइट को देखें:";
+        const text = "खड़गपुर की लोकल सर्विसेज की जानकारी के लिए यहाँ देखें:";
         if (navigator.share) {
-            navigator.share({ title: 'Kharagpur Services', text: text, url: window.location.href });
+            navigator.share({ title: 'KHARAGPUR SHOPS', text: text, url: window.location.href });
         } else {
             window.open(`https://wa.me/?text=${encodeURIComponent(text + " " + window.location.href)}`, '_blank');
         }
