@@ -16,13 +16,12 @@
         
         body { 
             font-family: 'Segoe UI', Arial, sans-serif; 
-            margin: 0; 
-            padding: 0; 
+            margin: 0; padding: 0; 
             background-color: var(--white-bg); 
             overflow-x: hidden; 
         }
 
-        /* Branding - Dhadkan Animation */
+        /* Branding - Heartbeat Animation */
         .site-branding {
             background-color: var(--dark-bg);
             color: var(--light-green);
@@ -36,88 +35,64 @@
         .branding-title { font-size: 26px; font-weight: 900; margin: 0; }
         .branding-subtitle { font-size: 14px; font-weight: 700; display: block; letter-spacing: 4px; color: #fff; }
 
-        /* Vigyapan Patti (Top) */
+        /* Top Black Ad */
         .ad-container { 
             background-color: var(--ad-black); 
             border-top: 5px solid var(--light-green); 
             border-bottom: 5px solid var(--light-green); 
-            border-left: none; 
-            border-right: none; 
-            margin: 0; 
-            width: 100%; 
+            border-left: none; border-right: none; 
+            margin: 0; width: 100%; 
         }
         .ad-banner { padding: 15px 0 5px 0; overflow: hidden; display: flex; }
         .ad-text { 
-            display: inline-block; 
-            white-space: nowrap; 
+            display: inline-block; white-space: nowrap; 
             animation: moveLeft 20s linear infinite; 
-            font-size: 18px; 
-            font-weight: 900; 
-            color: var(--light-green); 
+            font-size: 18px; font-weight: 900; color: var(--light-green); 
         }
         @keyframes moveLeft { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        /* Naya Feature: Right to Left Ad with Airplane Logo & Link */
-        .new-marquee-ad {
-            background-color: #f1f1f1;
-            padding: 12px 0;
-            border-bottom: 3px solid var(--light-green);
-            overflow: hidden;
-            display: flex;
-            white-space: nowrap;
-        }
-        .marquee-content {
-            display: inline-block;
-            animation: moveLeft 15s linear infinite; /* Right to Left */
-            font-size: 16px;
-            font-weight: 800;
-            color: #333;
-        }
-        .marquee-link {
-            text-decoration: none;
-            color: inherit;
-        }
-
         .ad-static-actions { 
             background-color: var(--ad-black); 
-            text-align: center; 
-            padding: 10px 0 20px 0; 
-            display: flex; 
-            justify-content: center; 
-            gap: 8px; 
-            flex-wrap: wrap; 
+            text-align: center; padding: 10px 0 20px 0; 
+            display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; 
         }
         .ad-static-btn { 
-            background-color: var(--light-green); 
-            color: #000; 
-            padding: 10px 15px; 
-            border-radius: 50px; 
-            text-decoration: none; 
-            font-size: 13px; 
-            font-weight: 900; 
-            text-transform: uppercase; 
-            box-shadow: 0 4px 0 var(--green-shadow); 
+            background-color: var(--light-green); color: #000; padding: 10px 15px; 
+            border-radius: 50px; text-decoration: none; font-size: 13px; font-weight: 900; 
+            text-transform: uppercase; box-shadow: 0 4px 0 var(--green-shadow); 
         }
         .form-btn { background-color: #673ab7 !important; color: white !important; }
 
         /* Header Style */
         .main-header { text-align: center; background-color: var(--light-green); padding: 25px 0; margin: 0; width: 100%; }
         .main-title { 
-            font-size: clamp(30px, 8vw, 50px); 
-            font-weight: 900; 
-            margin: 0; 
-            text-transform: uppercase; 
-            animation: lightHeartBeat 1.5s ease-in-out infinite; 
+            font-size: clamp(30px, 8vw, 50px); font-weight: 900; margin: 0; 
+            text-transform: uppercase; animation: lightHeartBeat 1.5s ease-in-out infinite; 
         }
         .main-subtitle { font-size: 16px; font-weight: 800; color: #333; letter-spacing: 2px; }
 
-        @keyframes lightHeartBeat { 
-            0%, 28%, 70% { transform: scale(1); } 
-            14%, 42% { transform: scale(1.03); } 
+        /* Airplane Ad - Right to Left */
+        .new-marquee-ad {
+            background-color: #f1f1f1; padding: 12px 0; border-bottom: 3px solid var(--light-green);
+            overflow: hidden; display: flex; white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-block; animation: moveLeft 15s linear infinite; 
+            font-size: 16px; font-weight: 800; color: #333;
         }
 
-        .nav-container { background-color: var(--dark-bg); padding: 20px 0; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: flex-start; gap: 10px; border-bottom: 4px solid var(--light-green); overflow-x: auto; padding-left: 10px; }
-        .tab-btn { font-size: 16px; padding: 12px 20px; font-weight: 900; cursor: pointer; border: none; border-radius: 50px; background-color: var(--light-green); box-shadow: 0 6px 0 var(--green-shadow); white-space: nowrap; }
+        @keyframes lightHeartBeat { 0%, 28%, 70% { transform: scale(1); } 14%, 42% { transform: scale(1.03); } }
+
+        .nav-container { 
+            background-color: var(--dark-bg); padding: 20px 0; position: sticky; top: 0; 
+            z-index: 1000; display: flex; justify-content: flex-start; gap: 10px; 
+            border-bottom: 4px solid var(--light-green); overflow-x: auto; padding-left: 10px; 
+        }
+        .tab-btn { 
+            font-size: 16px; padding: 12px 20px; font-weight: 900; cursor: pointer; 
+            border: none; border-radius: 50px; background-color: var(--light-green); 
+            box-shadow: 0 6px 0 var(--green-shadow); white-space: nowrap; 
+        }
         .tab-btn.active { background-color: #fff; transform: translateY(4px); box-shadow: 0 2px 0 var(--green-shadow); }
 
         .container { padding: 15px; max-width: 1100px; margin: auto; }
@@ -155,9 +130,7 @@
 
 <div class="new-marquee-ad">
     <div class="marquee-content">
-        <a href="https://your-shop-link.com" target="_blank" class="marquee-link">
-            ✈️ धमाकेदार सेल! खड़गपुर की टॉप दुकानों पर भारी डिस्काउंट के लिए यहाँ क्लिक करें ✈️
-        </a>
+        ✈️ धमाका ऑफर! खड़गपुर की टॉप सर्विसेज के लिए CKT DIGITAL पर आज ही अपनी शॉप लिस्ट करें! ✈️
     </div>
 </div>
 
@@ -179,12 +152,15 @@
         const keys = Object.keys(shopData);
         
         keys.forEach((key, index) => {
+            // बटन बनाना
             const btn = document.createElement('button');
+            btn.id = `btn-${key}`;
             btn.className = `tab-btn ${index === 0 ? 'active' : ''}`;
             btn.innerText = shopData[key].title;
             btn.onclick = (e) => showSection(key, e.target);
             tabMenu.appendChild(btn);
 
+            // सेक्शन बनाना
             const section = document.createElement('div');
             section.id = key;
             section.className = `section ${index === 0 ? 'active' : ''}`;
@@ -204,7 +180,7 @@
                             <a href="https://wa.me/${p.whatsapp}" class="action-btn">💬 WHATSAPP</a>
                             ${cardBtn}
                             <a href="${googleMapUrl}" target="_blank" class="action-btn" style="background-color: #ffeb3b;">📍 MAPS</a>
-                            <button onclick="shareShop('${p.name}', '${p.address}')" class="action-btn" style="background-color: #03a9f4; color: white; grid-column: span 2;">📤 SHARE THIS SHOP</button>
+                            <button onclick="shareShop('${p.name}', '${p.address}', '${key}')" class="action-btn" style="background-color: #03a9f4; color: white; grid-column: span 2;">📤 SHARE THIS SHOP</button>
                         </div>
                     </div>`;
             });
@@ -219,15 +195,27 @@
             `;
             contentArea.appendChild(section);
         });
+
+        // URL में कैटेगरी चेक करना (Deep Linking)
+        const hash = window.location.hash.replace('#', '');
+        if (hash && shopData[hash]) {
+            setTimeout(() => {
+                const targetBtn = document.getElementById(`btn-${hash}`);
+                showSection(hash, targetBtn);
+            }, 100);
+        }
     }
 
-    function shareShop(name, address) {
-        const text = `*${name}*\n📍 पता: ${address}\n\nCheck on CKT Digital:`;
-        const url = window.location.href;
+    // नया शेयर फंक्शन जो लिंक में कैटेगरी जोड़ता है
+    function shareShop(name, address, category) {
+        const text = `*${name}*\n📍 पता: ${address}\n\nइसे CKT Digital पर देखें:`;
+        // लिंक के अंत में #category जोड़ा गया है (जैसे index.html#saloon)
+        const shareUrl = window.location.origin + window.location.pathname + '#' + category;
+        
         if (navigator.share) {
-            navigator.share({ title: name, text: text, url: url });
+            navigator.share({ title: name, text: text, url: shareUrl });
         } else {
-            window.open(`https://wa.me/?text=${encodeURIComponent(text + " " + url)}`, '_blank');
+            window.open(`https://wa.me/?text=${encodeURIComponent(text + " " + shareUrl)}`, '_blank');
         }
     }
 
@@ -243,8 +231,11 @@
     function showSection(id, btn) {
         document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-        btn.classList.add('active');
+        const targetSection = document.getElementById(id);
+        if (targetSection) targetSection.classList.add('active');
+        if (btn) btn.classList.add('active');
+        // URL अपडेट करें बिना पेज रीलोड किए
+        window.history.pushState(null, null, '#' + id);
     }
 
     function filterList(listId, query) {
