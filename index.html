@@ -10,7 +10,7 @@
             --light-gold: #FFD700; 
             --gold-shadow: #C5A000; 
             --dark-bg: #1a1a1a; 
-            --ad-black: #000000; /* ऑरेंज की जगह वापस ब्लैक */
+            --ad-black: #000000; 
             --white-bg: #ffffff; 
         }
         
@@ -22,27 +22,22 @@
             overflow-x: hidden; 
         }
 
-        /* 1. ब्रांडिंग जो दिल की तरह धड़कती है */
+        /* 1. ब्रांडिंग - अब यह भी दिल की तरह धड़केगा */
         .site-branding {
             background-color: var(--dark-bg);
             color: var(--light-gold);
             text-align: center;
             padding: 15px 0;
-            font-size: 22px;
+            font-size: clamp(18px, 5vw, 24px);
             font-weight: 900;
             letter-spacing: 2px;
             border-bottom: 3px solid var(--light-gold);
             text-transform: uppercase;
-            animation: heartBeatBranding 1.2s ease-in-out infinite;
+            animation: heartBeat 1.2s ease-in-out infinite; /* धड़कने वाला फीचर */
             display: block;
         }
 
-        @keyframes heartBeatBranding { 
-            0%, 28%, 70% { transform: scale(1); color: var(--light-gold); } 
-            14%, 42% { transform: scale(1.1); color: #fff; } 
-        }
-
-        /* 2. विज्ञापन पट्टी - अब ब्लैक और बिना साइड बॉर्डर के */
+        /* 2. विज्ञापन पट्टी - ब्लैक और बिना साइड बॉर्डर के */
         .ad-container { 
             background-color: var(--ad-black); 
             border-top: 5px solid var(--light-gold); 
@@ -60,7 +55,7 @@
             animation: moveLeft 20s linear infinite; 
             font-size: 20px; 
             font-weight: 900; 
-            color: var(--light-gold); /* ब्लैक पर गोल्डन रंग साफ़ दिखेगा */
+            color: var(--light-gold); 
         }
         @keyframes moveLeft { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
         
@@ -92,7 +87,11 @@
         .main-title { font-size: clamp(30px, 8vw, 50px); font-weight: 900; margin: 0; text-transform: uppercase; animation: heartBeat 1.2s ease-in-out infinite; }
         .main-subtitle { font-size: 16px; font-weight: 800; color: #333; }
         
-        @keyframes heartBeat { 0%, 28%, 70% { transform: scale(1); color: #000; } 14%, 42% { transform: scale(1.05); color: #d40000; } }
+        /* धड़कने (Heartbeat) का कॉमन एनीमेशन */
+        @keyframes heartBeat { 
+            0%, 28%, 70% { transform: scale(1); } 
+            14%, 42% { transform: scale(1.1); } 
+        }
 
         .nav-container { background-color: var(--dark-bg); padding: 20px 0; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: flex-start; gap: 10px; border-bottom: 4px solid var(--light-gold); overflow-x: auto; padding-left: 10px; }
         .tab-btn { font-size: 16px; padding: 12px 20px; font-weight: 900; cursor: pointer; border: none; border-radius: 50px; background-color: var(--light-gold); box-shadow: 0 6px 0 var(--gold-shadow); white-space: nowrap; }
