@@ -7,8 +7,8 @@
     <style>
         * { box-sizing: border-box; }
         :root { 
-            --light-gold: #FFD700; 
-            --gold-shadow: #C5A000; 
+            --light-green: #90EE90; /* गोल्ड की जगह लाइट ग्रीन */
+            --green-shadow: #76c776; /* शैडो के लिए हरा रंग */
             --dark-bg: #1a1a1a; 
             --ad-black: #000000; 
             --white-bg: #ffffff; 
@@ -22,26 +22,26 @@
             overflow-x: hidden; 
         }
 
-        /* 1. ब्रांडिंग - अब यह भी दिल की तरह धड़केगा */
+        /* 1. CKT ब्रांडिंग - हल्का धड़कने वाला एनीमेशन */
         .site-branding {
             background-color: var(--dark-bg);
-            color: var(--light-gold);
+            color: var(--light-green);
             text-align: center;
-            padding: 15px 0;
-            font-size: clamp(18px, 5vw, 24px);
+            padding: 12px 0;
+            font-size: clamp(16px, 4vw, 22px);
             font-weight: 900;
             letter-spacing: 2px;
-            border-bottom: 3px solid var(--light-gold);
+            border-bottom: 3px solid var(--light-green);
             text-transform: uppercase;
-            animation: heartBeat 1.2s ease-in-out infinite; /* धड़कने वाला फीचर */
+            animation: lightHeartBeat 1.5s ease-in-out infinite;
             display: block;
         }
 
         /* 2. विज्ञापन पट्टी - ब्लैक और बिना साइड बॉर्डर के */
         .ad-container { 
             background-color: var(--ad-black); 
-            border-top: 5px solid var(--light-gold); 
-            border-bottom: 5px solid var(--light-gold); 
+            border-top: 5px solid var(--light-green); 
+            border-bottom: 5px solid var(--light-green); 
             border-left: none; 
             border-right: none; 
             margin: 0; 
@@ -53,9 +53,9 @@
             display: inline-block; 
             white-space: nowrap; 
             animation: moveLeft 20s linear infinite; 
-            font-size: 20px; 
+            font-size: 18px; 
             font-weight: 900; 
-            color: var(--light-gold); 
+            color: var(--light-green); 
         }
         @keyframes moveLeft { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
         
@@ -70,7 +70,7 @@
         }
         
         .ad-static-btn { 
-            background-color: var(--light-gold); 
+            background-color: var(--light-green); 
             color: #000; 
             padding: 10px 15px; 
             border-radius: 50px; 
@@ -78,34 +78,40 @@
             font-size: 13px; 
             font-weight: 900; 
             text-transform: uppercase; 
-            box-shadow: 0 4px 0 var(--gold-shadow); 
+            box-shadow: 0 4px 0 var(--green-shadow); 
         }
         
         .form-btn { background-color: #673ab7 !important; color: white !important; }
 
-        .main-header { text-align: center; background-color: var(--light-gold); padding: 25px 0; margin: 0; width: 100%; border-bottom: 6px solid var(--gold-shadow); }
-        .main-title { font-size: clamp(30px, 8vw, 50px); font-weight: 900; margin: 0; text-transform: uppercase; animation: heartBeat 1.2s ease-in-out infinite; }
+        .main-header { text-align: center; background-color: var(--light-green); padding: 25px 0; margin: 0; width: 100%; border-bottom: 6px solid var(--green-shadow); }
+        .main-title { 
+            font-size: clamp(30px, 8vw, 50px); 
+            font-weight: 900; 
+            margin: 0; 
+            text-transform: uppercase; 
+            animation: lightHeartBeat 1.5s ease-in-out infinite; 
+        }
         .main-subtitle { font-size: 16px; font-weight: 800; color: #333; }
         
-        /* धड़कने (Heartbeat) का कॉमन एनीमेशन */
-        @keyframes heartBeat { 
+        /* हल्का धड़कन (Subtle Heartbeat) एनीमेशन */
+        @keyframes lightHeartBeat { 
             0%, 28%, 70% { transform: scale(1); } 
-            14%, 42% { transform: scale(1.1); } 
+            14%, 42% { transform: scale(1.03); color: #006400; } /* धड़कने पर गहरा हरा रंग */
         }
 
-        .nav-container { background-color: var(--dark-bg); padding: 20px 0; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: flex-start; gap: 10px; border-bottom: 4px solid var(--light-gold); overflow-x: auto; padding-left: 10px; }
-        .tab-btn { font-size: 16px; padding: 12px 20px; font-weight: 900; cursor: pointer; border: none; border-radius: 50px; background-color: var(--light-gold); box-shadow: 0 6px 0 var(--gold-shadow); white-space: nowrap; }
-        .tab-btn.active { background-color: #fff; transform: translateY(4px); box-shadow: 0 2px 0 var(--gold-shadow); }
+        .nav-container { background-color: var(--dark-bg); padding: 20px 0; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: flex-start; gap: 10px; border-bottom: 4px solid var(--light-green); overflow-x: auto; padding-left: 10px; }
+        .tab-btn { font-size: 16px; padding: 12px 20px; font-weight: 900; cursor: pointer; border: none; border-radius: 50px; background-color: var(--light-green); box-shadow: 0 6px 0 var(--green-shadow); white-space: nowrap; }
+        .tab-btn.active { background-color: #fff; transform: translateY(4px); box-shadow: 0 2px 0 var(--green-shadow); }
 
         .container { padding: 15px; max-width: 1100px; margin: auto; }
         .section { display: none; }
         .section.active { display: block; }
-        .rate-card { background: #fff; padding: 20px; border-radius: 20px; border: 6px solid var(--light-gold); margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .search-bar { width: 100%; padding: 18px; margin-bottom: 25px; border-radius: 50px; border: 4px solid var(--light-gold); font-size: 18px; font-weight: bold; }
+        .rate-card { background: #fff; padding: 20px; border-radius: 20px; border: 6px solid var(--light-green); margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .search-bar { width: 100%; padding: 18px; margin-bottom: 25px; border-radius: 50px; border: 4px solid var(--light-green); font-size: 18px; font-weight: bold; }
         .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
-        .list-card { background: white; padding: 20px; border-radius: 20px; border: 6px solid var(--light-gold); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .list-card { background: white; padding: 20px; border-radius: 20px; border: 6px solid var(--light-green); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 15px; }
-        .action-btn { font-size: 11px; padding: 12px 2px; text-decoration: none; color: #000; border-radius: 50px; text-align: center; font-weight: 900; background-color: var(--light-gold); box-shadow: 0 4px 0 var(--gold-shadow); text-transform: uppercase; border: none; }
+        .action-btn { font-size: 11px; padding: 12px 2px; text-decoration: none; color: #000; border-radius: 50px; text-align: center; font-weight: 900; background-color: var(--light-green); box-shadow: 0 4px 0 var(--green-shadow); text-transform: uppercase; border: none; }
     </style>
 </head>
 <body>
