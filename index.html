@@ -22,7 +22,7 @@
             overflow-x: hidden; 
         }
 
-        /* 1. CKT DIGITAL Branding - Computer Logo aur Dhadkan Animation */
+        /* Branding - Dhadkan Animation */
         .site-branding {
             background-color: var(--dark-bg);
             color: var(--light-green);
@@ -36,7 +36,7 @@
         .branding-title { font-size: 26px; font-weight: 900; margin: 0; }
         .branding-subtitle { font-size: 14px; font-weight: 700; display: block; letter-spacing: 4px; color: #fff; }
 
-        /* 2. Vigyapan Patti - Black aur Bina Side Border ke */
+        /* Vigyapan Patti (Top) */
         .ad-container { 
             background-color: var(--ad-black); 
             border-top: 5px solid var(--light-green); 
@@ -56,6 +56,27 @@
             color: var(--light-green); 
         }
         @keyframes moveLeft { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+        /* Naya Feature: Right to Left Ad with Airplane Logo & Link */
+        .new-marquee-ad {
+            background-color: #f1f1f1;
+            padding: 12px 0;
+            border-bottom: 3px solid var(--light-green);
+            overflow: hidden;
+            display: flex;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: moveLeft 15s linear infinite; /* Right to Left */
+            font-size: 16px;
+            font-weight: 800;
+            color: #333;
+        }
+        .marquee-link {
+            text-decoration: none;
+            color: inherit;
+        }
 
         .ad-static-actions { 
             background-color: var(--ad-black); 
@@ -79,8 +100,8 @@
         }
         .form-btn { background-color: #673ab7 !important; color: white !important; }
 
-        /* 3. Main Header - Pahle ki tarah (KHARAGPUR Title + Subtitle) */
-        .main-header { text-align: center; background-color: var(--light-green); padding: 25px 0; margin: 0; width: 100%; border-bottom: 6px solid var(--green-shadow); }
+        /* Header Style */
+        .main-header { text-align: center; background-color: var(--light-green); padding: 25px 0; margin: 0; width: 100%; }
         .main-title { 
             font-size: clamp(30px, 8vw, 50px); 
             font-weight: 900; 
@@ -130,6 +151,14 @@
 <div class="main-header">
     <h1 class="main-title">KHARAGPUR</h1>
     <div class="main-subtitle">SHOPS & SERVICES</div>
+</div>
+
+<div class="new-marquee-ad">
+    <div class="marquee-content">
+        <a href="https://your-shop-link.com" target="_blank" class="marquee-link">
+            ✈️ धमाकेदार सेल! खड़गपुर की टॉप दुकानों पर भारी डिस्काउंट के लिए यहाँ क्लिक करें ✈️
+        </a>
+    </div>
 </div>
 
 <div class="nav-container" id="tabMenu"></div>
