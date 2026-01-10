@@ -40,7 +40,6 @@
             background-color: var(--ad-black); 
             border-top: 5px solid var(--light-green); 
             border-bottom: 5px solid var(--light-green); 
-            border-left: none; border-right: none; 
             margin: 0; width: 100%; 
         }
         .ad-banner { padding: 15px 0 5px 0; overflow: hidden; display: flex; }
@@ -63,7 +62,6 @@
         }
         .form-btn { background-color: #673ab7 !important; color: white !important; }
 
-        /* Header Style */
         .main-header { text-align: center; background-color: var(--light-green); padding: 25px 0; margin: 0; width: 100%; }
         .main-title { 
             font-size: clamp(30px, 8vw, 50px); font-weight: 900; margin: 0; 
@@ -71,7 +69,6 @@
         }
         .main-subtitle { font-size: 16px; font-weight: 800; color: #333; letter-spacing: 2px; }
 
-        /* Airplane Ad - Right to Left */
         .new-marquee-ad {
             background-color: #f1f1f1; padding: 12px 0; border-bottom: 3px solid var(--light-green);
             overflow: hidden; display: flex; white-space: nowrap;
@@ -98,10 +95,26 @@
         .container { padding: 15px; max-width: 1100px; margin: auto; }
         .section { display: none; }
         .section.active { display: block; }
+
+        /* ------------------------------------------------------------------ */
+        /* नई दुकान की कार्ड स्टाइल और शेयर हाइलाइट प्रभाव */
+        .list-card { 
+            background: white; padding: 20px; border-radius: 20px; 
+            border: 6px solid var(--light-green); 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+            transition: 0.3s;
+        }
+        /* जब शेयर की गई दुकान हाइलाइट हो */
+        .shared-highlight {
+            border: 8px solid #FFD700 !important; /* Gold Border */
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.7) !important;
+            transform: scale(1.05);
+        }
+        /* ------------------------------------------------------------------ */
+
         .rate-card { background: #fff; padding: 20px; border-radius: 20px; border: 6px solid var(--light-green); margin-bottom: 20px; }
         .search-bar { width: 100%; padding: 18px; margin-bottom: 25px; border-radius: 50px; border: 4px solid var(--light-green); font-size: 18px; font-weight: bold; }
         .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
-        .list-card { background: white; padding: 20px; border-radius: 20px; border: 6px solid var(--light-green); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 15px; }
         .action-btn { font-size: 11px; padding: 12px 2px; text-decoration: none; color: #000; border-radius: 50px; text-align: center; font-weight: 900; background-color: var(--light-green); box-shadow: 0 4px 0 var(--green-shadow); text-transform: uppercase; border: none; }
     </style>
@@ -130,7 +143,7 @@
 
 <div class="new-marquee-ad">
     <div class="marquee-content">
-        ✈️ धमाका ऑफर! खड़गपुर की टॉप सर्विसेज के लिए CKT DIGITAL पर आज ही अपनी शॉप लिस्ट करें! ✈️
+        ✈️ धमाका! खड़गपुर की टॉप सर्विसेज के लिए CKT DIGITAL पर आज ही अपनी शॉप लिस्ट करें! ✈️
     </div>
 </div>
 
@@ -152,7 +165,6 @@
         const keys = Object.keys(shopData);
         
         keys.forEach((key, index) => {
-            // बटन बनाना
             const btn = document.createElement('button');
             btn.id = `btn-${key}`;
             btn.className = `tab-btn ${index === 0 ? 'active' : ''}`;
@@ -160,18 +172,20 @@
             btn.onclick = (e) => showSection(key, e.target);
             tabMenu.appendChild(btn);
 
-            // सेक्शन बनाना
             const section = document.createElement('div');
             section.id = key;
             section.className = `section ${index === 0 ? 'active' : ''}`;
             
             let partnersHtml = '';
-            shopData[key].partners.forEach(p => {
+            shopData[key].partners.forEach((p, pIndex) => {
                 const cardBtn = p.cardLink ? `<a href="${p.cardLink}" target="_blank" class="action-btn" style="background-color: #ff9800; color: white;">🗂️ CARD</a>` : '';
                 const googleMapUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(p.name + ' ' + p.address)}`;
+                
+                // प्रत्येक दुकान के लिए एक यूनिक ID (नाम से बनाई गई)
+                const shopId = p.name.replace(/\s+/g, '-').toLowerCase();
 
                 partnersHtml += `
-                    <div class="list-card">
+                    <div class="list-card" id="card-${shopId}">
                         <h3>${p.name}</h3>
                         <p>📍 ${p.address}</p>
                         <p>📞 ${p.mobile}</p>
@@ -180,7 +194,7 @@
                             <a href="https://wa.me/${p.whatsapp}" class="action-btn">💬 WHATSAPP</a>
                             ${cardBtn}
                             <a href="${googleMapUrl}" target="_blank" class="action-btn" style="background-color: #ffeb3b;">📍 MAPS</a>
-                            <button onclick="shareShop('${p.name}', '${p.address}', '${key}')" class="action-btn" style="background-color: #03a9f4; color: white; grid-column: span 2;">📤 SHARE THIS SHOP</button>
+                            <button onclick="shareShop('${p.name}', '${p.address}', '${key}', '${shopId}')" class="action-btn" style="background-color: #03a9f4; color: white; grid-column: span 2;">📤 SHARE THIS SHOP</button>
                         </div>
                     </div>`;
             });
@@ -196,35 +210,48 @@
             contentArea.appendChild(section);
         });
 
-        // URL में कैटेगरी चेक करना (Deep Linking)
+        // Deep Linking Logic: कैटेगरी और दुकान दोनों चेक करना
+        checkSharedLink();
+    }
+
+    function checkSharedLink() {
         const hash = window.location.hash.replace('#', '');
-        if (hash && shopData[hash]) {
-            setTimeout(() => {
-                const targetBtn = document.getElementById(`btn-${hash}`);
-                showSection(hash, targetBtn);
-            }, 100);
+        if (hash) {
+            // हमने हैश को 'category|shopid' फॉर्मेट में रखा है
+            const parts = hash.split('|');
+            const catId = parts[0];
+            const shopId = parts[1];
+
+            if (shopData[catId]) {
+                const targetBtn = document.getElementById(`btn-${catId}`);
+                showSection(catId, targetBtn);
+
+                if (shopId) {
+                    setTimeout(() => {
+                        const targetCard = document.getElementById(`card-${shopId}`);
+                        if (targetCard) {
+                            // दुकान तक स्क्रॉल करना
+                            targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            // दुकान को हाइलाइट करना
+                            targetCard.classList.add('shared-highlight');
+                            // 3 सेकंड बाद हाइलाइट हटाना (वैकल्पिक)
+                            setTimeout(() => targetCard.classList.remove('shared-highlight'), 5000);
+                        }
+                    }, 500);
+                }
+            }
         }
     }
 
-    // नया शेयर फंक्शन जो लिंक में कैटेगरी जोड़ता है
-    function shareShop(name, address, category) {
-        const text = `*${name}*\n📍 पता: ${address}\n\nइसे CKT Digital पर देखें:`;
-        // लिंक के अंत में #category जोड़ा गया है (जैसे index.html#saloon)
-        const shareUrl = window.location.origin + window.location.pathname + '#' + category;
+    function shareShop(name, address, category, shopId) {
+        const text = `*${name}*\n📍 पता: ${address}\n\nइसे CKT Digital पर सीधे यहाँ देखें:`;
+        // लिंक में कैटेगरी और दुकान की ID दोनों जोड़ना
+        const shareUrl = window.location.origin + window.location.pathname + '#' + category + '|' + shopId;
         
         if (navigator.share) {
             navigator.share({ title: name, text: text, url: shareUrl });
         } else {
             window.open(`https://wa.me/?text=${encodeURIComponent(text + " " + shareUrl)}`, '_blank');
-        }
-    }
-
-    function shareMain() {
-        const text = "CKT Digital - खड़गपुर की लोकल सर्विसेज की जानकारी यहाँ देखें:";
-        if (navigator.share) {
-            navigator.share({ title: 'CKT Digital', text: text, url: window.location.href });
-        } else {
-            window.open(`https://wa.me/?text=${encodeURIComponent(text + " " + window.location.href)}`, '_blank');
         }
     }
 
@@ -234,8 +261,18 @@
         const targetSection = document.getElementById(id);
         if (targetSection) targetSection.classList.add('active');
         if (btn) btn.classList.add('active');
-        // URL अपडेट करें बिना पेज रीलोड किए
+        // URL को कैटेगरी के हिसाब से अपडेट करना (बिना शॉप ID के, ताकी साफ़ रहे)
         window.history.pushState(null, null, '#' + id);
+    }
+
+    // सर्च और अन्य फंक्शन्स
+    function shareMain() {
+        const text = "CKT Digital - खड़गपुर की लोकल सर्विसेज यहाँ देखें:";
+        if (navigator.share) {
+            navigator.share({ title: 'CKT Digital', text: text, url: window.location.href });
+        } else {
+            window.open(`https://wa.me/?text=${encodeURIComponent(text + " " + window.location.href)}`, '_blank');
+        }
     }
 
     function filterList(listId, query) {
