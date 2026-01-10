@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CKT - Kharagpur City Connect</title>
+    <title>CKT DIGITAL - Kharagpur Services</title>
     <style>
         * { box-sizing: border-box; }
         :root { 
-            --light-green: #90EE90; /* गोल्ड की जगह लाइट ग्रीन */
-            --green-shadow: #76c776; /* शैडो के लिए हरा रंग */
+            --light-green: #90EE90; 
+            --green-shadow: #76c776; 
             --dark-bg: #1a1a1a; 
             --ad-black: #000000; 
             --white-bg: #ffffff; 
@@ -22,22 +22,21 @@
             overflow-x: hidden; 
         }
 
-        /* 1. CKT ब्रांडिंग - हल्का धड़कने वाला एनीमेशन */
+        /* 1. CKT DIGITAL Branding - Computer Logo aur Dhadkan Animation */
         .site-branding {
             background-color: var(--dark-bg);
             color: var(--light-green);
             text-align: center;
-            padding: 12px 0;
-            font-size: clamp(16px, 4vw, 22px);
-            font-weight: 900;
-            letter-spacing: 2px;
+            padding: 15px 0;
             border-bottom: 3px solid var(--light-green);
             text-transform: uppercase;
             animation: lightHeartBeat 1.5s ease-in-out infinite;
             display: block;
         }
+        .branding-title { font-size: 26px; font-weight: 900; margin: 0; }
+        .branding-subtitle { font-size: 14px; font-weight: 700; display: block; letter-spacing: 4px; color: #fff; }
 
-        /* 2. विज्ञापन पट्टी - ब्लैक और बिना साइड बॉर्डर के */
+        /* 2. Vigyapan Patti - Black aur Bina Side Border ke */
         .ad-container { 
             background-color: var(--ad-black); 
             border-top: 5px solid var(--light-green); 
@@ -47,7 +46,6 @@
             margin: 0; 
             width: 100%; 
         }
-        
         .ad-banner { padding: 15px 0 5px 0; overflow: hidden; display: flex; }
         .ad-text { 
             display: inline-block; 
@@ -58,7 +56,7 @@
             color: var(--light-green); 
         }
         @keyframes moveLeft { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-        
+
         .ad-static-actions { 
             background-color: var(--ad-black); 
             text-align: center; 
@@ -68,7 +66,6 @@
             gap: 8px; 
             flex-wrap: wrap; 
         }
-        
         .ad-static-btn { 
             background-color: var(--light-green); 
             color: #000; 
@@ -80,9 +77,9 @@
             text-transform: uppercase; 
             box-shadow: 0 4px 0 var(--green-shadow); 
         }
-        
         .form-btn { background-color: #673ab7 !important; color: white !important; }
 
+        /* 3. Main Header - Pahle ki tarah (KHARAGPUR Title + Subtitle) */
         .main-header { text-align: center; background-color: var(--light-green); padding: 25px 0; margin: 0; width: 100%; border-bottom: 6px solid var(--green-shadow); }
         .main-title { 
             font-size: clamp(30px, 8vw, 50px); 
@@ -91,12 +88,11 @@
             text-transform: uppercase; 
             animation: lightHeartBeat 1.5s ease-in-out infinite; 
         }
-        .main-subtitle { font-size: 16px; font-weight: 800; color: #333; }
-        
-        /* हल्का धड़कन (Subtle Heartbeat) एनीमेशन */
+        .main-subtitle { font-size: 16px; font-weight: 800; color: #333; letter-spacing: 2px; }
+
         @keyframes lightHeartBeat { 
             0%, 28%, 70% { transform: scale(1); } 
-            14%, 42% { transform: scale(1.03); color: #006400; } /* धड़कने पर गहरा हरा रंग */
+            14%, 42% { transform: scale(1.03); } 
         }
 
         .nav-container { background-color: var(--dark-bg); padding: 20px 0; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: flex-start; gap: 10px; border-bottom: 4px solid var(--light-green); overflow-x: auto; padding-left: 10px; }
@@ -106,7 +102,7 @@
         .container { padding: 15px; max-width: 1100px; margin: auto; }
         .section { display: none; }
         .section.active { display: block; }
-        .rate-card { background: #fff; padding: 20px; border-radius: 20px; border: 6px solid var(--light-green); margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .rate-card { background: #fff; padding: 20px; border-radius: 20px; border: 6px solid var(--light-green); margin-bottom: 20px; }
         .search-bar { width: 100%; padding: 18px; margin-bottom: 25px; border-radius: 50px; border: 4px solid var(--light-green); font-size: 18px; font-weight: bold; }
         .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
         .list-card { background: white; padding: 20px; border-radius: 20px; border: 6px solid var(--light-green); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
@@ -116,7 +112,10 @@
 </head>
 <body>
 
-<div class="site-branding">CKT - KHARAGPUR CITY CONNECT</div>
+<div class="site-branding">
+    <div class="branding-title">💻 CKT DIGITAL</div>
+    <span class="branding-subtitle">SERVICE</span>
+</div>
 
 <div class="ad-container">
     <div class="ad-banner"><div class="ad-text">✨ विज्ञापन: खड़गपुर की नंबर 1 शॉप - बेस्ट सर्विस और बेस्ट रेट | संपर्क करें: +91 7908955101 ✨</div></div>
@@ -130,7 +129,7 @@
 
 <div class="main-header">
     <h1 class="main-title">KHARAGPUR</h1>
-    <div class="main-subtitle">SHOPS & SERVICES DIRECTORY</div>
+    <div class="main-subtitle">SHOPS & SERVICES</div>
 </div>
 
 <div class="nav-container" id="tabMenu"></div>
@@ -194,7 +193,7 @@
     }
 
     function shareShop(name, address) {
-        const text = `*${name}*\n📍 पता: ${address}\n\nCheck on CKT Kharagpur Connect:`;
+        const text = `*${name}*\n📍 पता: ${address}\n\nCheck on CKT Digital:`;
         const url = window.location.href;
         if (navigator.share) {
             navigator.share({ title: name, text: text, url: url });
@@ -204,9 +203,9 @@
     }
 
     function shareMain() {
-        const text = "CKT - खड़गपुर की लोकल सर्विसेज की जानकारी यहाँ देखें:";
+        const text = "CKT Digital - खड़गपुर की लोकल सर्विसेज की जानकारी यहाँ देखें:";
         if (navigator.share) {
-            navigator.share({ title: 'CKT Kharagpur', text: text, url: window.location.href });
+            navigator.share({ title: 'CKT Digital', text: text, url: window.location.href });
         } else {
             window.open(`https://wa.me/?text=${encodeURIComponent(text + " " + window.location.href)}`, '_blank');
         }
