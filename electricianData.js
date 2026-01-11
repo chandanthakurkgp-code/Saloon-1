@@ -1,3 +1,4 @@
+﻿
 const electricianData = {
     "electrician": {
         "title": "Electrician",
@@ -12,6 +13,15 @@ const electricianData = {
                 "viewLink": "#", 
                 "cardLink": "https://your-visiting-card-link-here", // विजिटिंग कार्ड का लिंक यहाँ डालें
                 "mapLink": "#" 
+            },
+            { 
+                "name": "Amit", 
+                "address": "Malancha Road", 
+                "mobile": "9800000001", 
+                "whatsapp": "919800000001", 
+                "viewLink": "https://youtube.com/shorts/6jCQHmzMqqo?feature=shared", 
+                "cardLink": "https://youtube.com/shorts/6jCQHmzMqqo?feature=shared", // 
+                "mapLink": "https://youtube.com/shorts/6jCQHmzMqqo?feature=shared" 
             },
             { 
                 "name": "वर्मा इलेक्ट्रिक वर्क्स", 
