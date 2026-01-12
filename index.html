@@ -32,7 +32,7 @@
             overflow-x: hidden; 
         }
 
-        /* 1. BRANDING - तेज़ धड़कन (0.8s) और बड़ा साइज़ */
+        /* 1. BRANDING - तेज़ धड़कन (0.8s) */
         .site-branding {
             background-color: var(--dark-bg);
             color: var(--light-green);
@@ -46,10 +46,11 @@
         .branding-title { font-size: clamp(32px, 10vw, 48px); font-weight: 950; margin: 0; }
         .branding-subtitle { font-size: 18px; font-weight: 800; display: block; letter-spacing: 6px; color: #fff; }
 
-        /* 2. विज्ञापन पट्टी और बटन */
+        /* 2. विज्ञापन पट्टी */
         .ad-container { background-color: var(--ad-black); border-top: 5px solid var(--light-green); border-bottom: 5px solid var(--light-green); width: 100%; }
         .ad-banner { padding: 15px 0 5px 0; overflow: hidden; display: flex; }
         .ad-text { display: inline-block; white-space: nowrap; animation: moveLeft 20s linear infinite; font-size: 18px; font-weight: 900; color: var(--light-green); }
+        
         @keyframes moveLeft { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
         .ad-static-actions { 
@@ -63,7 +64,6 @@
             text-transform: uppercase; box-shadow: 0 4px 0 var(--green-shadow); border: none; cursor: pointer;
         }
 
-        /* नाइट मोड और ऐड शॉप बटन */
         .mode-btn { background-color: #f1f1f1; }
         body.night-mode .mode-btn { background-color: #333; color: #fff; box-shadow: 0 4px 0 #000; }
         .form-btn { background-color: #673ab7 !important; color: white !important; animation: fastHeartBeat 0.8s ease-in-out infinite; }
@@ -73,12 +73,12 @@
         
         @keyframes fastHeartBeat { 0%, 28%, 70% { transform: scale(1); } 14%, 42% { transform: scale(1.08); } }
 
-        /* 3. AIRPLANE AD - ✈️ */
+        /* 3. AIRPLANE AD - ✈️ (बाएँ से दाएँ) */
         .new-marquee-ad { background-color: #f1f1f1; padding: 12px 0; border-bottom: 3px solid var(--light-green); overflow: hidden; display: flex; white-space: nowrap; color: #333; }
         body.night-mode .new-marquee-ad { background-color: #333; color: #fff; }
         .marquee-content { display: inline-block; animation: moveLeft 15s linear infinite; font-size: 16px; font-weight: 800; }
 
-        /* 4. विज़िटर काउंटर स्टाइल (FIXED) */
+        /* 4. VISITOR COUNTER - NEW & STABLE */
         .visitor-counter {
             background: var(--dark-bg);
             color: var(--light-green);
@@ -86,16 +86,9 @@
             padding: 20px;
             margin-top: 30px;
             border-top: 5px solid var(--light-green);
-            font-weight: 900;
         }
-        .counter-box {
-            display: inline-block;
-            background: #000;
-            padding: 10px 20px;
-            border-radius: 10px;
-            border: 2px solid var(--light-green);
-            margin-top: 10px;
-        }
+        .counter-label { font-size: 14px; letter-spacing: 2px; font-weight: 900; margin-bottom: 10px; }
+        .counter-box { display: inline-block; background: #000; padding: 5px; border: 2px solid var(--light-green); border-radius: 5px; }
 
         /* NAVIGATION & CARDS */
         .nav-container { background-color: var(--dark-bg); padding: 20px 0; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: flex-start; gap: 10px; border-bottom: 4px solid var(--light-green); overflow-x: auto; padding-left: 10px; }
@@ -108,12 +101,7 @@
 
         .list-card { background: var(--card-bg); padding: 20px; border-radius: 20px; border: 6px solid var(--light-green); box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: 0.3s; margin-bottom: 15px; }
         .list-card h3 { color: var(--light-green); border-bottom: 1px solid #444; padding-bottom: 5px; }
-        
-        .shared-highlight {
-            border: 8px solid #FFD700 !important;
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.7) !important;
-            transform: scale(1.05);
-        }
+        .shared-highlight { border: 8px solid #FFD700 !important; box-shadow: 0 0 25px rgba(255, 215, 0, 0.7) !important; transform: scale(1.05); }
 
         .rate-card { background: var(--card-bg); padding: 20px; border-radius: 20px; border: 6px solid var(--light-green); margin-bottom: 20px; }
         .search-bar { width: 100%; padding: 18px; margin-bottom: 25px; border-radius: 50px; border: 4px solid var(--light-green); font-size: 18px; font-weight: bold; background: var(--card-bg); color: var(--text-color); }
@@ -155,9 +143,9 @@
 <div class="container" id="contentArea"></div>
 
 <div class="visitor-counter">
-    <div>LIVE VISITOR COUNT</div>
+    <div class="counter-label">CKT DIGITAL TOTAL VISITORS</div>
     <div class="counter-box">
-        <img src="https://hitwebcounter.com/counter/counter.php?page=CKT_DIGITAL_FINAL_2026&style=0005&nbdigits=6&type=page&initCount=0" title="Free Counter" Alt="web counter" border="0">
+        <img src="https://counter-free.net/count/en3t" alt="Free Counter" border="0">
     </div>
 </div>
 
