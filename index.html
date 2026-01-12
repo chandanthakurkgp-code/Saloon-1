@@ -32,7 +32,7 @@
             overflow-x: hidden; 
         }
 
-        /* 1. BRANDING - तेज़ धड़कन (0.8s) और बड़ा साइज़ */
+        /* 1. BRANDING - तेज़ धड़कन (0.8s) और कंप्यूटर लोगो */
         .site-branding {
             background-color: var(--dark-bg);
             color: var(--light-green);
@@ -46,12 +46,13 @@
         .branding-title { font-size: clamp(32px, 10vw, 48px); font-weight: 950; margin: 0; }
         .branding-subtitle { font-size: 18px; font-weight: 800; display: block; letter-spacing: 6px; color: #fff; }
 
-        /* 2. विज्ञापन पट्टी और बटन */
+        /* 2. विज्ञापन पट्टी */
         .ad-container { background-color: var(--ad-black); border-top: 5px solid var(--light-green); border-bottom: 5px solid var(--light-green); width: 100%; }
         .ad-banner { padding: 15px 0 5px 0; overflow: hidden; display: flex; }
         .ad-text { display: inline-block; white-space: nowrap; animation: moveLeft 20s linear infinite; font-size: 18px; font-weight: 900; color: var(--light-green); }
         @keyframes moveLeft { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
+        /* कॉल, नाइट मोड और अन्य बटन्स */
         .ad-static-actions { 
             background-color: var(--ad-black); 
             text-align: center; padding: 10px 0 20px 0; 
@@ -65,8 +66,6 @@
 
         .mode-btn { background-color: #f1f1f1; }
         body.night-mode .mode-btn { background-color: #333; color: #fff; box-shadow: 0 4px 0 #000; }
-        
-        /* ADD SHOP - तेज़ धड़कन */
         .form-btn { background-color: #673ab7 !important; color: white !important; animation: fastHeartBeat 0.8s ease-in-out infinite; }
 
         .main-header { text-align: center; background-color: var(--light-green); padding: 25px 0; margin: 0; width: 100%; color: #000; }
@@ -74,12 +73,12 @@
         
         @keyframes fastHeartBeat { 0%, 28%, 70% { transform: scale(1); } 14%, 42% { transform: scale(1.08); } }
 
-        /* 3. AIRPLANE AD - ✈️ (Right to Left) */
+        /* 3. AIRPLANE AD - ✈️ (दाएँ से बाएँ) */
         .new-marquee-ad { background-color: #f1f1f1; padding: 12px 0; border-bottom: 3px solid var(--light-green); overflow: hidden; display: flex; white-space: nowrap; color: #333; }
         body.night-mode .new-marquee-ad { background-color: #333; color: #fff; }
         .marquee-content { display: inline-block; animation: moveLeft 15s linear infinite; font-size: 16px; font-weight: 800; }
 
-        /* 4. विज़िटर काउंटर - 9 डिजिट और डिजिटल स्टाइल */
+        /* 4. VISITOR COUNTER - NEW RE-FIXED */
         .visitor-counter {
             background: var(--dark-bg);
             color: var(--light-green);
@@ -88,13 +87,12 @@
             margin-top: 30px;
             border-top: 5px solid var(--light-green);
         }
-        .counter-label { font-size: 14px; letter-spacing: 2px; font-weight: 900; margin-bottom: 10px; text-transform: uppercase; }
-        .counter-box { 
-            display: inline-block; 
-            background: #000; 
-            padding: 10px; 
+        .counter-title { font-size: 14px; letter-spacing: 2px; font-weight: 900; margin-bottom: 10px; text-transform: uppercase; }
+        .counter-box img { 
             border: 2px solid var(--light-green); 
-            border-radius: 8px;
+            border-radius: 5px; 
+            padding: 2px; 
+            background: #000;
         }
 
         /* NAVIGATION & CARDS */
@@ -150,9 +148,9 @@
 <div class="container" id="contentArea"></div>
 
 <div class="visitor-counter">
-    <div class="counter-label">CKT DIGITAL TOTAL FOOTFALL</div>
+    <div class="counter-title">CKT DIGITAL TOTAL FOOTFALL</div>
     <div class="counter-box">
-        <img src="https://hitwebcounter.com/counter/counter.php?page=CKT_DIGITAL_KGP_2026&style=0005&nbdigits=9&type=page&initCount=0" title="Free Counter" Alt="web counter" border="0">
+        <a href="https://www.freecounterstat.com" title="website counter"><img src="https://counter9.stat.ovh/private/freecounterstat.php?c=89mj8m1w5w727m616lyq2v269v2k253m" border="0" title="website counter" alt="website counter"></a>
     </div>
 </div>
 
