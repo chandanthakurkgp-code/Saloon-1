@@ -32,7 +32,7 @@
             overflow-x: hidden; 
         }
 
-        /* 1. BRANDING - तेज़ धड़कन (0.8s) और कंप्यूटर लोगो */
+        /* 1. BRANDING - तेज़ धड़कन (0.8s) */
         .site-branding {
             background-color: var(--dark-bg);
             color: var(--light-green);
@@ -74,30 +74,24 @@
 
         @keyframes fastHeartBeat { 0%, 28%, 70% { transform: scale(1); } 14%, 42% { transform: scale(1.08); } }
 
-        /* 4. PREMIUM VISITOR COUNTER - 9 DIGITS & NEON STYLE */
+        /* 4. विज़िटर काउंटर - नई जगह (Header के नीचे) */
         .visitor-counter {
             background: var(--dark-bg);
             color: var(--light-green);
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 15px 10px;
+            gap: 12px;
+            padding: 10px;
             border-bottom: 3px solid var(--light-green);
             font-weight: 900;
-        }
-        .counter-label { font-size: 12px; letter-spacing: 3px; margin-bottom: 8px; text-transform: uppercase; color: #fff; }
-        .counter-box {
-            background: #000;
-            padding: 5px 15px;
-            border-radius: 10px;
-            border: 2px solid var(--light-green);
-            box-shadow: 0 0 15px rgba(144, 238, 144, 0.4); /* Neon Glow */
+            font-size: 14px;
         }
         .counter-box img { 
-            height: 35px; /* बड़ा और साफ़ काउंटर */
+            height: 25px; 
+            border: 1px solid var(--light-green); 
+            border-radius: 4px; 
             vertical-align: middle;
-            filter: brightness(1.2); /* थोड़ा चमकदार */
         }
 
         /* 5. AIRPLANE AD - ✈️ */
@@ -149,10 +143,9 @@
 </div>
 
 <div class="visitor-counter">
-    <div class="counter-label">Global Traffic Count</div>
+    <p style="margin:0">TOTAL FOOTFALL:</p>
     <div class="counter-box">
-        <a href="https://www.hitwebcounter.com" target="_blank">
-        <img src="https://hitwebcounter.com/counter/counter.php?page=CKT_FINAL_V9&style=0025&nbdigits=9&type=page&initCount=0" title="Free Counter" Alt="web counter" border="0" /></a>
+        <a href="https://www.freecounterstat.com" title="website counter"><img src="https://counter9.stat.ovh/private/freecounterstat.php?c=89mj8m1w5w727m616lyq2v269v2k253m" border="0" title="website counter" alt="website counter"></a>
     </div>
 </div>
 
