@@ -32,7 +32,7 @@
             overflow-x: hidden; 
         }
 
-        /* 1. BRANDING - तेज़ धड़कन (0.8s) और कंप्यूटर लोगो */
+        /* 1. BRANDING - तेज़ धड़कन (0.8s) */
         .site-branding {
             background-color: var(--dark-bg);
             color: var(--light-green);
@@ -46,13 +46,12 @@
         .branding-title { font-size: clamp(32px, 10vw, 48px); font-weight: 950; margin: 0; }
         .branding-subtitle { font-size: 18px; font-weight: 800; display: block; letter-spacing: 6px; color: #fff; }
 
-        /* 2. विज्ञापन पट्टी */
+        /* 2. मुख्य विज्ञापन पट्टी */
         .ad-container { background-color: var(--ad-black); border-top: 5px solid var(--light-green); border-bottom: 5px solid var(--light-green); width: 100%; }
         .ad-banner { padding: 15px 0 5px 0; overflow: hidden; display: flex; }
         .ad-text { display: inline-block; white-space: nowrap; animation: moveLeft 20s linear infinite; font-size: 18px; font-weight: 900; color: var(--light-green); }
         @keyframes moveLeft { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        /* कॉल, नाइट मोड और अन्य बटन्स */
         .ad-static-actions { 
             background-color: var(--ad-black); 
             text-align: center; padding: 10px 0 20px 0; 
@@ -68,32 +67,37 @@
         body.night-mode .mode-btn { background-color: #333; color: #fff; box-shadow: 0 4px 0 #000; }
         .form-btn { background-color: #673ab7 !important; color: white !important; animation: fastHeartBeat 0.8s ease-in-out infinite; }
 
-        .main-header { text-align: center; background-color: var(--light-green); padding: 25px 0; margin: 0; width: 100%; color: #000; }
+        /* 3. MAIN HEADER */
+        .main-header { text-align: center; background-color: var(--light-green); padding: 25px 0 10px 0; margin: 0; width: 100%; color: #000; }
         .main-title { font-size: clamp(30px, 8vw, 50px); font-weight: 900; margin: 0; animation: fastHeartBeat 0.8s ease-in-out infinite; }
-        
+        .main-subtitle { font-size: 16px; font-weight: 800; color: #333; letter-spacing: 2px; }
+
         @keyframes fastHeartBeat { 0%, 28%, 70% { transform: scale(1); } 14%, 42% { transform: scale(1.08); } }
 
-        /* 3. AIRPLANE AD - ✈️ (दाएँ से बाएँ) */
-        .new-marquee-ad { background-color: #f1f1f1; padding: 12px 0; border-bottom: 3px solid var(--light-green); overflow: hidden; display: flex; white-space: nowrap; color: #333; }
-        body.night-mode .new-marquee-ad { background-color: #333; color: #fff; }
-        .marquee-content { display: inline-block; animation: moveLeft 15s linear infinite; font-size: 16px; font-weight: 800; }
-
-        /* 4. VISITOR COUNTER - NEW RE-FIXED */
+        /* 4. विज़िटर काउंटर - नई जगह (Header के नीचे) */
         .visitor-counter {
             background: var(--dark-bg);
             color: var(--light-green);
-            text-align: center;
-            padding: 20px;
-            margin-top: 30px;
-            border-top: 5px solid var(--light-green);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            padding: 10px;
+            border-bottom: 3px solid var(--light-green);
+            font-weight: 900;
+            font-size: 14px;
         }
-        .counter-title { font-size: 14px; letter-spacing: 2px; font-weight: 900; margin-bottom: 10px; text-transform: uppercase; }
         .counter-box img { 
-            border: 2px solid var(--light-green); 
-            border-radius: 5px; 
-            padding: 2px; 
-            background: #000;
+            height: 25px; 
+            border: 1px solid var(--light-green); 
+            border-radius: 4px; 
+            vertical-align: middle;
         }
+
+        /* 5. AIRPLANE AD - ✈️ */
+        .new-marquee-ad { background-color: #f1f1f1; padding: 12px 0; border-bottom: 3px solid var(--light-green); overflow: hidden; display: flex; white-space: nowrap; color: #333; }
+        body.night-mode .new-marquee-ad { background-color: #333; color: #fff; }
+        .marquee-content { display: inline-block; animation: moveLeft 15s linear infinite; font-size: 16px; font-weight: 800; }
 
         /* NAVIGATION & CARDS */
         .nav-container { background-color: var(--dark-bg); padding: 20px 0; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: flex-start; gap: 10px; border-bottom: 4px solid var(--light-green); overflow-x: auto; padding-left: 10px; }
@@ -138,6 +142,13 @@
     <div class="main-subtitle">SHOPS & SERVICES</div>
 </div>
 
+<div class="visitor-counter">
+    <p style="margin:0">TOTAL FOOTFALL:</p>
+    <div class="counter-box">
+        <a href="https://www.freecounterstat.com" title="website counter"><img src="https://counter9.stat.ovh/private/freecounterstat.php?c=89mj8m1w5w727m616lyq2v269v2k253m" border="0" title="website counter" alt="website counter"></a>
+    </div>
+</div>
+
 <div class="new-marquee-ad">
     <div class="marquee-content">
         ✈️ धमाका! खड़गपुर की टॉप सर्विसेज के लिए CKT DIGITAL पर आज ही अपनी शॉप लिस्ट करें! ✈️
@@ -146,13 +157,6 @@
 
 <div class="nav-container" id="tabMenu"></div>
 <div class="container" id="contentArea"></div>
-
-<div class="visitor-counter">
-    <div class="counter-title">CKT DIGITAL TOTAL FOOTFALL</div>
-    <div class="counter-box">
-        <a href="https://www.freecounterstat.com" title="website counter"><img src="https://counter9.stat.ovh/private/freecounterstat.php?c=89mj8m1w5w727m616lyq2v269v2k253m" border="0" title="website counter" alt="website counter"></a>
-    </div>
-</div>
 
 <script src="saloonData.js"></script>
 <script src="autoData.js"></script>
